@@ -1,9 +1,10 @@
 import React from 'react';
+import Button from './Button';
 
 function App() {
   return (
     <div>
-        <p className="text-red-400">TodoApp</p>
+        <Button text="Add"/>
     </div>
   );
 }
