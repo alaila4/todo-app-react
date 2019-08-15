@@ -9,7 +9,8 @@ var Button = (props) =>{
                 rounded 
                 py-3 px-4 mx-2
                 bg-green-500" 
-                type="button">
+                type="button"
+                onClick={props.onClick}>
                 {props.text}
         </button>     
     )

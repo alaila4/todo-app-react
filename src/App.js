@@ -1,4 +1,5 @@
 import React from 'react';
+
 import TodoCard from './TodoCard';
 import DoneCard from './DoneCard';
 
@@ -13,10 +14,13 @@ function App() {
         <div className="md:w-1/2">
             <DoneCard className="mx-auto mt-4 w-full max-w-lg" />
         </div>
-         
     </div>
         
   );
+}
+
+function handleClickAdd(props) {
+    taskData.push({id: taskData.length, title: props.title, active: true})
 }
 
 export default App;
