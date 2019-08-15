@@ -3,8 +3,8 @@ import Button from './Button';
 
 function App() {
   return (
-    <div>
-        <Button text="Add"/>
+    <div className="flex">
+        <Button text="Add"/> 
     </div>
   );
 }
