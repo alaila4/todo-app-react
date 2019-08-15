@@ -5,6 +5,8 @@ import DoneCard from './DoneCard';
 
 
 
+
+
 function App() {
   return (
     <div className="container mx-auto flex flex-wrap bg-gray-100 ">
@@ -19,8 +21,6 @@ function App() {
   );
 }
 
-function handleClickAdd(props) {
-    taskData.push({id: taskData.length, title: props.title, active: true})
-}
+
 
 export default App;

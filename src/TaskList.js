@@ -3,7 +3,7 @@ import taskData from './taskData.js';
 import TaskItem from './TaskItem.js';
 
 var TaskList = () => {
-    const finalTaskList = taskData.map(task => <TaskItem title={task.title}/>)
+    const finalTaskList = taskData.map(task => <TaskItem title={task.title} key={task.id}/>)
     
     return(
         <div>
