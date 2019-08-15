@@ -1,6 +1,6 @@
 import React from 'react';
 
-let Button = (props) =>{
+var Button = (props) =>{
     return ( 
         <button 
                 className="flex-auto 
