@@ -53,12 +53,14 @@ class TodoApp extends Component {
     render() {
         return (
             <div>
-                <TodoHeader />
-                <div className="container mx-auto flex flex-wrap">
-                    <div className=" md:w-1/2 bg-white mx-6 my-10 rounded shadow-md  px-4 py-6">
-                        <div className="container flex flex-wrap">
-                            <TodoForm addItem={this.addItem} />
-                        </div>
+                <div>
+                    <TodoHeader />
+                </div>
+                
+
+                <div container flex>
+                    <div className="bg-white mx-6 my-10 rounded shadow-md  px-4 py-6">
+                        <TodoForm addItem={this.addItem} />
                         <h1 className="flex font-semibold tracking-widest text-green-500 text-center ml-2 my-2 mt-10" >TO DO</h1>
                         <hr className="border border-gray-100 mx-2"></hr>
                         <TodoList items={this.props.initItems} removeItem={this.removeItem} markTodoDone={this.markTodoDone}/>
@@ -78,10 +80,15 @@ class TodoApp extends Component {
                             type="button"
                             onClick={this.deleteItems}>
                             DELETE ALL
-                        </button>
+                        </button>             
                     </div>
-                    <TodoDone className="md:w-1/2" items={todoItemsDone} returnItem={this.returnItem}/>
+
+                    <div>
+                        <TodoDone items={todoItemsDone} returnItem={this.returnItem}/>
+                    </div>
                 </div>
+                
+                
                 
             </div>
             

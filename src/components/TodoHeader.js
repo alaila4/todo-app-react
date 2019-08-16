@@ -10,7 +10,7 @@ class Header extends React.Component {
             
             
                 <div className="mt-4">
-                    <h1 className="text-xl text-center">Welcome to Your <strong>Todo App</strong></h1>
+                    <h1 className="text-xl text-center text-5xl text-gray-500">Todo App</h1>
                 </div> 
             </div> 
         )
