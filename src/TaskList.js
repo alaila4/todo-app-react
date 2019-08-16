@@ -16,7 +16,7 @@ class TaskList extends Component {
         
         return (
             <div className="mt-2 mx-2 ">
-                <h1 className="text-gray-700 ">{items} </h1>
+                <h1 className="text-gray-700"> {items} </h1>
             </div>
         );
     }

@@ -16,7 +16,7 @@ var Button = (props) =>{
                 tracking-wider" 
                 type="submit"
                 onClick={props.onClick}>
-                <i class="fas fa-plus"></i> {props.text}
+                <i className="fas fa-plus"></i> {props.text}
         </button>     
     )
 }   

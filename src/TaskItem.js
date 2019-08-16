@@ -19,7 +19,7 @@ class TaskItem extends Component {
             "done" : "undone";
         return(
             <div className="container flex flex-wrap">
-                <div class={todoClass} className="flex w-full cursor-pointer overflow-y-auto mt-2 hover:bg-gray-100 rounded">
+                <div todoClass={todoClass} className="flex w-full cursor-pointer overflow-y-auto mt-2 hover:bg-gray-100 rounded">
                     <h1 className="my-3 mt-3 mx-2 w-3/5">{this.props.item.value}</h1>
                     <span className="flex mr-2 w-1/5 justify-end text-gray-700 hover:text-green-600" aria-hidden="true" onClick={this.onClickDone}> 
                         <i className="fas fa-check-double"></i>

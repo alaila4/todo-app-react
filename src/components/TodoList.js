@@ -9,7 +9,12 @@ class TodoList extends Component {
             );
         });
         return (
-            <ul className="list-group"> {items} </ul>
+            <ul>
+                <div className="mt-2 mx-2 ">
+                    <h1 className="text-gray-700"> {items} </h1>
+                </div>
+            </ul>
+            
         );
     }
 }
