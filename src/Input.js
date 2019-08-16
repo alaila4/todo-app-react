@@ -1,6 +1,6 @@
 import React from 'react';
-import TaskList from './TaskList';
 import taskData from './taskData';
+import TaskList from './TaskList';
 
 class Input extends React.Component {
     constructor(props) {
@@ -9,6 +9,7 @@ class Input extends React.Component {
 
         this._handleKeyDown = this._handleKeyDown.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this._handlePressedButton = this._handlePressedButton.bind(this);
     }
 
     _handleKeyDown = (e) => {
@@ -20,16 +21,19 @@ class Input extends React.Component {
         }
     }
 
+    _handlePressedButton = (e) => {        
+        console.log('hey'); 
+        this.sendTask();
+        console.log(this.state.value);
+    }
+
     handleChange(event) {
         this.setState({value: event.target.value});
     }
 
     sendTask(){
         // TaskList task = new TaskList();
-        // task.receiveTask(this.state.value);
-        taskData.push({id: taskData.length, title: this.state.value, active: true})
-        TaskList();
-
+        // task.receiveTask(this.state.value);  
     }
     
     render(){

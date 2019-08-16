@@ -1,12 +1,10 @@
 import React from 'react';
 import Input from './Input';
 import Button from './Button';
-import taskData from './taskData';
+import TaskList from './TaskList';
 
 
 let TodoCard = () => {
-
-
     return (
         <div className="bg-gray-200 mx-6 my-10">
             <div className="shadow-md rounded rounded-lg px-4 py-6">
@@ -23,6 +21,9 @@ let TodoCard = () => {
                     </div>
                 </div>
 
+                <div>
+                    <TaskList />
+                </div>
 
             </div>
         </div>
@@ -30,8 +31,9 @@ let TodoCard = () => {
     )
 }
 
-function handleClickAdd(props) {
-    taskData.push({id: taskData.length, title: props.title, active: true})
+function handleClickAdd() {
+    let inp = Input;
+    inp._handlePressedButton();    
 }
 
 export default TodoCard;
