@@ -11,21 +11,27 @@ class TodoListItem extends Component {
         this.props.returnItem(index);
     }
     render () {
-        // var todoClass = this.props.item.done ? 
-        //     "done" : "undone";
+
         return(
             <li className="list-group-item ">
                 <div className="container flex flex-wrap my-3 mt-3">
-                    {/* <div className={todoClass}> */}
+
                         <div  className="flex w-full overflow-y-auto mt-2 hover:bg-gray-100 rounded">
                             
-                            <h1 className="mx-2 w-3/5">{this.props.item.value}</h1>
-                            <span className="flex mr-2 w-1/5 justify-end text-gray-700 hover:text-green-600" aria-hidden="true" onClick={this.onClickReturn}> 
-                                <i className="fas fa-undo-alt"></i>
-                            </span>
+                            <div className="flex-1">
+                                <h1>{this.props.item.value}</h1>
+                            </div>                            
+
+                            <div>
+                                <span className="px-2 text-gray-700 hover:text-green-600" 
+                                    aria-hidden="true" 
+                                    onClick={this.onClickReturn}>
+
+                                    <i className="fas fa-undo-alt"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                {/* </div> */}
             </li>     
         );
     }

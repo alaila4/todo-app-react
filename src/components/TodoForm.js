@@ -19,7 +19,7 @@ class TodoForm extends Component {
     }
     render () {
         return (
-            <form ref="form" onSubmit={this.onSubmit} className="container flex ">
+            <form ref="form" onSubmit={this.onSubmit} className="flex ">
                 <input type="text" ref="itemName" 
                     className="bg-white
                     focus:outline-none 
