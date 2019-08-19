@@ -15,19 +15,18 @@ class TodoApp extends Component {
         this.markTodoDone = this.markTodoDone.bind(this);
         this.returnItem = this.returnItem.bind(this);
         this.deleteItems = this.deleteItems.bind(this);
+        this.editItem = this.editItem.bind(this);
+        this.setActiveEditInput = this.setActiveEditInput.bind(this);
         this.state = {todoItems: todoItems};
     }
     addItem(todoItem) {
         todoItems.unshift({
         index: todoItems.length+1, 
         value: todoItem.newItemValue, 
-        done: false
+        done: false,
+        editMode: false
     });
     this.setState({todoItems: todoItems});
-    }
-    removeItem (itemIndex) {
-        todoItems.splice(itemIndex, 1);
-        this.setState({todoItems: todoItems});
     }
     markTodoDone(itemIndex) {
         var todo = todoItems[itemIndex];
@@ -37,33 +36,50 @@ class TodoApp extends Component {
         todoItemsDone.push(todo);
         this.setState({todoItems: todoItems});
     }
-
+    editItem(item) {
+        var todo = todoItems[item.itemIndex];
+        todo.value = item.value;
+        todo.editMode = false;
+        this.setState({todoItems: todo});
+    }
+    removeItem (itemIndex) {
+        todoItems.splice(itemIndex, 1);
+        this.setState({todoItems: todoItems});
+    }   
     returnItem(itemIndex) {
         var todo = todoItemsDone[itemIndex];
         todoItemsDone.splice(itemIndex, 1);
         todoItems.push(todo);
         this.setState({todoItems: todoItems});
     }
-
     deleteItems() {
         todoItems.splice(0, todoItems.length);
         this.setState({todoItems: todoItems});
     }
+    setActiveEditInput (itemIndex){
+        var todo = todoItems;
+        todo[itemIndex].editMode = true;
+        this.setState({todoItems: todo});
+    }
 
     render() {
+
         return (
             <div>
                 <div>
                     <TodoHeader />
-                </div>
-                
+                </div>                
 
-                <div container flex>
+                <div className="container">
                     <div className="bg-white mx-6 my-10 rounded shadow-md  px-4 py-6">
                         <TodoForm addItem={this.addItem} />
                         <h1 className="flex font-semibold tracking-widest text-green-500 text-center ml-2 my-2 mt-10" >TO DO</h1>
                         <hr className="border border-gray-100 mx-2"></hr>
-                        <TodoList items={this.props.initItems} removeItem={this.removeItem} markTodoDone={this.markTodoDone}/>
+                        <TodoList items={this.props.initItems} removeItem={this.removeItem} 
+                            markTodoDone={this.markTodoDone}
+                            setActiveEditInput={this.setActiveEditInput}
+                            editItem={this.editItem}                                                      
+                        />
                         <button className=" w-full
                             text-center 
                             font-regular
