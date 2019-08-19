@@ -19,6 +19,7 @@ class TodoApp extends Component {
         this.setActiveEditInput = this.setActiveEditInput.bind(this);
         this.state = {todoItems: todoItems};
     }
+
     addItem(todoItem) {
         todoItems.unshift({
         index: todoItems.length+1, 
@@ -26,8 +27,10 @@ class TodoApp extends Component {
         done: false,
         editMode: false
     });
+
     this.setState({todoItems: todoItems});
     }
+
     markTodoDone(itemIndex) {
         var todo = todoItems[itemIndex];
         todoItems.splice(itemIndex, 1);
@@ -36,26 +39,31 @@ class TodoApp extends Component {
         todoItemsDone.push(todo);
         this.setState({todoItems: todoItems});
     }
+
     editItem(item) {
         var todo = todoItems[item.itemIndex];
         todo.value = item.value;
         todo.editMode = false;
         this.setState({todoItems: todo});
     }
+
     removeItem (itemIndex) {
         todoItems.splice(itemIndex, 1);
         this.setState({todoItems: todoItems});
-    }   
+    }  
+
     returnItem(itemIndex) {
         var todo = todoItemsDone[itemIndex];
         todoItemsDone.splice(itemIndex, 1);
         todoItems.push(todo);
         this.setState({todoItems: todoItems});
     }
+
     deleteItems() {
         todoItems.splice(0, todoItems.length);
         this.setState({todoItems: todoItems});
     }
+    
     setActiveEditInput (itemIndex){
         var todo = todoItems;
         todo[itemIndex].editMode = true;
@@ -70,8 +78,8 @@ class TodoApp extends Component {
                     <TodoHeader />
                 </div>                
 
-                <div className="container">
-                    <div className="bg-white mx-6 my-10 rounded shadow-md  px-4 py-6">
+                <div className="flex flex-col md:flex-row">
+                    <div className="bg-white mx-6 my-10 rounded shadow-md px-4 py-6 md:w-1/2">
                         <TodoForm addItem={this.addItem} />
                         <h1 className="flex font-semibold tracking-widest text-green-500 text-center ml-2 my-2 mt-10" >TO DO</h1>
                         <hr className="border border-gray-100 mx-2"></hr>
@@ -96,16 +104,15 @@ class TodoApp extends Component {
                             type="button"
                             onClick={this.deleteItems}>
                             DELETE ALL
-                        </button>             
-                    </div>
+                        </button>
 
-                    <div>
-                        <TodoDone items={todoItemsDone} returnItem={this.returnItem}/>
+                                   
                     </div>
-                </div>
-                
-                
-                
+                        <div className="md:w-1/2">
+                            <TodoDone 
+                            items={todoItemsDone} returnItem={this.returnItem}/>
+                        </div>                                         
+                </div>         
             </div>
             
         );

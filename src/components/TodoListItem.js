@@ -62,7 +62,7 @@ class TodoListItem extends Component {
                         <div  className="flex w-full cursor-pointer overflow-y-auto mt-2 hover:bg-gray-100 rounded"
                             style = {this.props.item.editMode ? {display: "none"} : {}}>                            
                             
-                            <h1 className="mx-2 w-3/5">{this.props.item.value}</h1>
+                            <h1 className="mx-2 w-3/5" onClick = {this.onClickEdit}>{this.props.item.value}</h1>
 
                             <span className="flex mr-2 w-1/5 justify-end text-gray-700 hover:text-green-600" aria-hidden="true" onClick={this.onClickDone}> 
                                 <i className="fas fa-check-double"></i>
