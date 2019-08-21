@@ -79,8 +79,8 @@ class TodoApp extends Component {
                 </div>                
 
                 <div className="flex flex-col md:flex-row">
-                    <div className={ "bg-white mx-6 my-10 rounded shadow-md px-4 py-6 " + (
-                        todoItemsDone <= 0 ? "md: w-full" : "md: w-1/2") }>
+                    <div className={ "bg-white mx-6 my-10 rounded shadow-md px-4 py-6 flex-wrap flex-1" + (
+                        todoItemsDone <= 0 ? "" : "") }>
                         <TodoForm addItem={this.addItem} />
                         <h1 className="flex font-semibold tracking-widest text-green-500 text-center ml-2 my-2 mt-10" >TO DO</h1>
                         <hr className="border border-gray-100 mx-2"></hr>
