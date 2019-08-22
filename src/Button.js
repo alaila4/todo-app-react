@@ -7,13 +7,16 @@ var Button = (props) =>{
                 text-center 
                 font-semibold 
                 rounded 
-                py-3 px-4 mx-1
+                py-1 md:py-3 px-2 mx-1
                 bg-green-500
                 font-light
-                text-white" 
-                type="button"
+                text-white
+                shadow
+                hover:bg-green-600
+                tracking-wider" 
+                type="submit"
                 onClick={props.onClick}>
-                {props.text}
+                <i className="fas fa-plus"></i> {props.text}
         </button>     
     )
 }   
